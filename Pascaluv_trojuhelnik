@@ -1,0 +1,13 @@
+def paskaluv_trojuhelnik(pocet_radku)
+    trojuhelnik = []
+    for i in range(pocet_radku):
+        radek = [1] 
+        if trojuhelnik:
+            posledni_radek = trojuhelnik[-1]
+            radek.extend([posledni_radek[j] + posledni_radek[j + 1] for j in range(len(posledni_radek) - 1)])
+            radek.append(1)
+        trojuhelnik.append(radek)
+    for radek in trojuhelnik:
+        print(" ".join(map(str, radek)).center(pocet_radku * 3))
+pocet_radku = 5
+paskaluv_trojuhelnik(pocet_radku)
