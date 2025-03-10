@@ -1,0 +1,26 @@
+1. volba limitu :D
+
+def fibonacci_pocet_prvku(pocet_prvku):
+    posloupnost = []
+    a, b = 0, 1  
+    for _ in range(pocet_prvku):
+        posloupnost.append(a)
+        a, b = b, a + b 
+    return posloupnost
+pocet_prvku = int(input("Zadejte počet prvků: "))
+vysledek = fibonacci_pocet_prvku(pocet_prvku)
+print("Fibonacciho posloupnost:", vysledek)
+
+
+2. volba horního limitu
+
+def fibonacci_horni_limit(horni_limit):
+    posloupnost = []
+    a, b = 0, 1 
+    while a <= horni_limit:
+        posloupnost.append(a)
+        a, b = b, a + b
+    return posloupnost
+horni_limit = int(input("Zadejte horní limit: "))
+vysledek = fibonacci_horni_limit(horni_limit)
+print("Fibonacciho posloupnost:", vysledek)
