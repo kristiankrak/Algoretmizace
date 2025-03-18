@@ -1,0 +1,36 @@
+import random
+
+def sportka():
+    cisla = list(range(1, 50))
+    print("Dostupná čísla:")
+    print(cisla)
+    hrac_tiket = set()
+    print("\n6 čísel (1 až 49):")
+
+    while len(hrac_tiket) < 6:
+        try:
+            cislo = int(input(f"Číslo {len(hrac_tiket) + 1}: "))
+            if 1 <= cislo <= 49 and cislo not in hrac_tiket:
+                hrac_tiket.add(cislo)
+            else:
+                print(" 1 do 49 ")
+        except ValueError:
+            print("prosím platné číslo")
+
+    hrac_tiket = sorted(hrac_tiket)
+    print(f"\nTvůj tiket: {hrac_tiket}")
+    vyherni_cisla = sorted(random.sample(range(1, 50), 6))
+    print(f"Výherní čísla: {vyherni_cisla}")
+    uhodnuto = len(set(hrac_tiket) & set(vyherni_cisla))
+    print(f"Počet uhodnutých čísel: {uhodnuto}")
+    vyhry = {
+        3: "100 Kč",
+        4: "5 000 Kč",
+        5: "100 000 Kč",
+        6: "Jackpot! 10 000 000 Kč"
+    }
+    if uhodnuto >= 3:
+        print(f"Vyhráváš: {vyhry[uhodnuto]}")
+    else:
+        print("Bohužel jsi nic nevyhrál.")
+sportka()
